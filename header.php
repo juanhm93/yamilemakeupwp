@@ -9,21 +9,30 @@
 </head>
 <body>
     <header class="header">
-    <nav class="">
-        <div class="container">
+    <nav>
+        <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" >
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span></span>
+                    </button>
                         <a class="navbar-brand" href="<?php echo home_url( '/' ); ?>">
-                            <img alt="<?php bloginfo("name"); ?>" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo negro Yamile.png " width="200" class="d-inline-block align-top">
+                            <img alt="<?php bloginfo("name"); ?>" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo negro Yamile.png " width="110" class="d-inline-block align-top ">
                             </a>
                     </div>
-                    <div class="col-md-8">
+                    <div class="navbar-nav">
                     
                             <?php 
                                 wp_nav_menu( array(
                                     'theme_location'  => 'principal',
+                                    'container_class' => 'collapse navbar-collapse',  
                                     'container_id'    => 'navbar',
-                                    'menu_class' => 'nav navbar-nav navbar-right',
+                                    'menu_class' => 'nav navbar-nav navbar-right d-flex align-items-center',
+                                    
                                 ) );
                             ?>
                     </div>
