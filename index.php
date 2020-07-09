@@ -1,6 +1,8 @@
 
 <?php get_header();  ?>
 
+
+    <?php  $destacada = wp_get_attachement_image_src(get_post_ ) ?> 
     <section id="portada" class="front-cover">
         <div class="front-cover-container">
             <h1>yamileth panduani</h1>
@@ -19,6 +21,8 @@
             <!-- <img class="" src="image/image (5).jpg" alt=""> -->
         </div>
     </section>
+
+
     <section id="biografia" class="biography">
         <div class="biography-detail">
             <h1>TRAYECTORIA MAKEUPARTIST</h1>

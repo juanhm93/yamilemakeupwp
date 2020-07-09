@@ -91,6 +91,12 @@ nav{
     border-bottom: 2px solid #000316;
     background-color: white;
 }
+.navbar-header button{
+  border:1px solid #444444;
+}
+button .icon-bar{
+    background-color: #444444;
+}
 
 
 
