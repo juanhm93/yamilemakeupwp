@@ -4,7 +4,7 @@
 
 <div class="containier-fluid">
           <?php 
-           if(in_category('bio')):
+           if(in_category('portada')):
           $destacada = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full' );
            $destacada = $destacada[0];
           ?>
@@ -13,66 +13,112 @@
           <?php
             endif;
           ?>  
-            <div class="col-md-6 front-cover-container">            
-                    <?php 
-                    if ( have_posts() ) : 
-                        while ( have_posts() ) : the_post(); 
-                        
-                        if(in_category( 'bio' )):    
-                            the_title('<h1>','</h1>');
-                           ?>
-                            <article class="front-cover-description">
-                            <?php
-                            the_content();
-                           ?>
-                            </article>
-                            <?php
-                        endif;
-                        endwhile; 
-                    endif; 
-                    ?>
+                <div class="col-md-6 front-cover-container">            
+                        <?php 
+                        if ( have_posts() ) : 
+                            while ( have_posts() ) : the_post(); 
+                            
+                            if(in_category( 'portada' )):    
+                                the_title('<h1>','</h1>');
+                            ?>
+                                <article class="front-cover-description">
+                                <?php
+                                the_content();
+                            ?>
+                                </article>
+                                <?php
+                            endif;
+                            endwhile; 
+                        endif; 
+                        ?>
+                </div>
+                <div class="col-md-12 front-cover-social-networks">
+                    <ul>
+                        <li><a  class="networks" href="https://www.facebook.com/Yamilemakeup/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook.svg" alt=""> <p>facebook.com/yamilemakeup</p></a></li>
+                        <li><a class="networks" href="https://www.instagram.com/yamilemakeup/?igshid=elzox8dm8nf4" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram.svg" alt=""><p>@yamilemakeup</p> </a></li>
+                        <li><a class="networks" href="https://www.youtube.com/channel/UCk0pDqKt8hNJmb0Rpa8r_6g" target="_blank"> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/youtube.svg" alt=""><p>Yamile Makeup</p> </a></li>
+                    </ul>
+                </div>
+        </div>
+    
+        <div id="biografia" class="row biography">
+            <div class="col-md-4 biography-detail">
+            <?php 
+                        if ( have_posts() ) : 
+                            while ( have_posts() ) : the_post(); 
+                            
+                            if(in_category( 'biografia' )):    
+                                the_title('<h1>','</h1>');
+                            ?>
+                                <article>
+                                <?php
+                                the_content();
+                            ?>
+                                </article>
+                                <?php
+                            endif;
+                            endwhile; 
+                        endif; 
+                        ?>                 
             </div>
-            <div class="col-md-12 front-cover-social-networks">
-                <ul>
-                    <li><a  class="networks" href="https://www.facebook.com/Yamilemakeup/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook.svg" alt=""> <p>facebook.com/yamilemakeup</p></a></li>
-                    <li><a class="networks" href="https://www.instagram.com/yamilemakeup/?igshid=elzox8dm8nf4" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram.svg" alt=""><p>@yamilemakeup</p> </a></li>
-                    <li><a class="networks" href="https://www.youtube.com/channel/UCk0pDqKt8hNJmb0Rpa8r_6g" target="_blank"> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/youtube.svg" alt=""><p>Yamile Makeup</p> </a></li>
-                </ul>
+            <div class="col-md-8 biography-images-container">
+                        <div class="miss-image">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/regina_peredo.png" alt="">
+                            <p>Regina peredo - <br><span>Miss Panamericana</span></p>
+                        </div>
+                        <div class="ceo-image">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/daniela_kosan.png" alt="">
+                            <p>Daniela Kos&aacute;n - <br><span>CEO y Emprendedora.</span></p>
+                        </div>
+                        <div class="actress-image">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ana_simpson.png" alt="">
+                            <p>Ana Maria Simpson - <br> <span>Actriz y Productora</span></p>
+                        </div>
+                        <hr class="biography-line">
+            </div>
+        </div>
+        <div id="cursos" class="row course">
+            <div class="col-md-12">
+                <div class="title-special">
+                    <hr class="line-course l-left"/><h3>cursos</h3><hr class="line-course l-right"/> 
+                </div>
+                <div class="course__container">
+                    <div class="course__container--details">
+                        <?php
+                    if ( have_posts() ) : 
+                            while ( have_posts() ) : the_post(); 
+                            
+                            if(in_category( 'cursos' )):    
+                            ?>
+                                
+                                <div class="course__container--img">
+                                <?php
+                                if(has_post_thumbnail() ):
+                                the_post_thumbnail( 'full', array('class'=> 'img-course') );
+                                else:
+                                    _e( 'Debe agregar una imagen destadaca' );
+                                endif;
+                                the_title( '<p>', '</p>')
+                            ?>
+                                
+                                </div> 
+                                <?php
+                            endif;
+                            endwhile; 
+                        endif; 
+                        ?>                 
+                    </div>
+                    <div class="direction">
+                        <button  id="prev" class="prev" onclick="nextSlide(-1)">&#10094;</button>
+                        <button  id="next" class="next" onclick="nextSlide(1)">&#10095;</button>
+                    </div>
+                </div>
             </div>
         </div>
     
-    </div>
+</div>
 
-
-    <section id="biografia" class="biography">
-        <div class="biography-detail">
-            <h1>TRAYECTORIA MAKEUPARTIST</h1>
-            <article>
-                <p>Venezolana, naci&oacute; el 26 junio de 1981 en San Felix, Edo Bolivar</p>
-                <p>Desde muy joven estuvo en Modelaje, particip&oacute; en concursos de Bellezas, ganadora <br> de Mara de Oro y Cacique de Oro como modelo del año dek Estado Bolivar</p>
-                <p>Se caso a los 20 años con el Dr Alejandro Teran, tuvo 2 Hijos Alejandro y Carlota</p>
-                <p>Siempre amante del maquillaje y la belleza Yamileth decide incursionar <br> profesionalmente en el mundo del paquilaje a los 32 años, inicia su preparaci&oacute;n en diferentes cursos maquillaje con Artistas como Franklin Salomon con quien realiz&oacute; dos adiestramientos, y asi comez&oacute; sus pasos  por el mundo del maquillaje y para alcanzar un nivel superior realiz&oacute; un Proworkshop con la Makeup Artist Amanda Salazar La Musu, con quien termin&oacute; de pulir sus t&eacute;nicas y quedando como una de las alumnas m&aacute;s destacadas del Proworkshop y seleccionada para formar parte del Musuteam (grupo de profesionales del maquillaje entrenados por La Musu y desplegados en diferentes pa&iacute;ses) </p>
-                <p>Actualmente reside en los Estados Unidos en la ciudad de Katy en Houston Texas. Donde es reconocida como una de mas maquiladoras m&aacute;s destacadas de la ciudad.</p>
-                <p>#NoMasCarasLavadas</p>
-                <a class="link" href="">ver portafolio</a>
-            </article>
-        </div>
-        <div class="biography-images-container">
-            <div class="miss-image">
-                <img src="image/regina_peredo.png" alt="">
-                <p>Regina peredo - <br><span>Miss Panamericana</span></p>
-            </div>
-            <div class="ceo-image">
-                <img src="image/daniela_kosan.png" alt="">
-                <p>Daniela Kos&aacute;n - <br><span>CEO y Emprendedora.</span></p>
-            </div>
-            <div class="actress-image">
-                <img src="image/ana_simpson.png" alt="">
-                <p>Ana Maria Simpson - <br> <span>Actriz y Productora</span></p>
-            </div>
-            <hr class="biography-line">
-        </div>
-    </section>
+   
     <section id="cursos" class="course">
         <div class="title-special">
             <hr class="line-course l-left"/><h3>cursos</h3><hr class="line-course l-right"/> 
