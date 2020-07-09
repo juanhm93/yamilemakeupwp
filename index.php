@@ -4,21 +4,19 @@
 
 <div class="containier-fluid">
           <?php 
-           if(in_category('portada')):
+            if ( have_posts() ) : 
+                while ( have_posts() ) : the_post(); 
+                
+                if(in_category( 'portada' )):    
           $destacada = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full' );
            $destacada = $destacada[0];
           ?>
           
         <div id="portada" class="row front-cover" style="background-image:url(<?php echo $destacada ?>)">
-          <?php
-            endif;
-          ?>  
+        
                 <div class="col-md-6 front-cover-container">            
                         <?php 
-                        if ( have_posts() ) : 
-                            while ( have_posts() ) : the_post(); 
-                            
-                            if(in_category( 'portada' )):    
+                      
                                 the_title('<h1>','</h1>');
                             ?>
                                 <article class="front-cover-description">
@@ -92,9 +90,9 @@
                             ?>
                                 
                                 <div class="course__container--img">
-                                <?php
+                                <a href="<?php the_permalink(); ?> "alt =" <?php the_title_attribute ();?> "><?php
                                 if(has_post_thumbnail() ):
-                                the_post_thumbnail( 'full', array('class'=> 'img-course') );
+                                the_post_thumbnail( 'full', array('class'=> 'img-course') ); echo '</a>'; 
                                 else:
                                     _e( 'Debe agregar una imagen destadaca' );
                                 endif;
