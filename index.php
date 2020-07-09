@@ -2,25 +2,46 @@
 <?php get_header();  ?>
 
 
-    <?php  $destacada = wp_get_attachement_image_src(get_post_ ) ?> 
-    <section id="portada" class="front-cover">
-        <div class="front-cover-container">
-            <h1>yamileth panduani</h1>
-            <article class="front-cover-description">
-                <p>Vive la experiencia del maquillaje y la estetica facial profesional <br> para ocaciones memorables dignas de recordar, resaltando tu <br> belleza como nunca antes</p>
-            </article>
-            <article class="front-cover-social-networks">
+<div class="containier-fluid">
+          <?php 
+           if(in_category('bio')):
+          $destacada = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full' );
+           $destacada = $destacada[0];
+          ?>
+          
+        <div id="portada" class="row front-cover" style="background-image:url(<?php echo $destacada ?>)">
+          <?php
+            endif;
+          ?>  
+            <div class="col-md-6 front-cover-container">            
+                    <?php 
+                    if ( have_posts() ) : 
+                        while ( have_posts() ) : the_post(); 
+                        
+                        if(in_category( 'bio' )):    
+                            the_title('<h1>','</h1>');
+                           ?>
+                            <article class="front-cover-description">
+                            <?php
+                            the_content();
+                           ?>
+                            </article>
+                            <?php
+                        endif;
+                        endwhile; 
+                    endif; 
+                    ?>
+            </div>
+            <div class="col-md-12 front-cover-social-networks">
                 <ul>
-                    <li><a  class="networks" href=""><img src="image/facebook.svg" alt=""> <p>facebook.com/yamilemakeup</p></a></li>
-                    <li><a class="networks" href=""><img src="image/instagram.svg" alt=""><p>@yamilemakeup</p> </a></li>
-                    <li><a class="networks" href=""> <img src="image/youtube.svg" alt=""><p>Yamile Makeup</p> </a></li>
+                    <li><a  class="networks" href="https://www.facebook.com/Yamilemakeup/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook.svg" alt=""> <p>facebook.com/yamilemakeup</p></a></li>
+                    <li><a class="networks" href="https://www.instagram.com/yamilemakeup/?igshid=elzox8dm8nf4" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram.svg" alt=""><p>@yamilemakeup</p> </a></li>
+                    <li><a class="networks" href="https://www.youtube.com/channel/UCk0pDqKt8hNJmb0Rpa8r_6g" target="_blank"> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/youtube.svg" alt=""><p>Yamile Makeup</p> </a></li>
                 </ul>
-            </article>
+            </div>
         </div>
-        <div class="front-cover-img">
-            <!-- <img class="" src="image/image (5).jpg" alt=""> -->
-        </div>
-    </section>
+    
+    </div>
 
 
     <section id="biografia" class="biography">

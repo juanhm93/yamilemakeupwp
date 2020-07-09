@@ -25,28 +25,28 @@ Use it to make something cool, have fun, and share what you've learned with othe
     font-family: 'Segoe-Bold';
     src: local("Segoe UI Bold"),
     local("Segoe-UI-Bold"),
-    url('/css/fonts/Segoe\ UI\ Bold.woff');
+    url('css/fonts/Segoe\ UI\ Bold.woff');
     font-weight: bold;
   }
   @font-face {
     font-family: 'Segoe';
     src: local("Segoe UI"),
     local("Segoe-UI"),
-    url('/css/fonts/Segoe\ UI.woff');
+    url('css/fonts/Segoe\ UI.woff');
     font-weight: normal;
   }
   @font-face {
     font-family: 'Tenor-Sans';
     src: local("Tenor Sans Regular"),
     local("Tenor-sans-Regular"),
-    url('/css/fonts/TenorSans-Regular.ttf');
+    url('css/fonts/TenorSans-Regular.ttf');
     font-weight: normal;
   }
   @font-face {
     font-family: 'Public-Sans';
     src: local("Public Sans Regular"),
     local("Public-sans-Regular"),
-    url('/css/fonts/PublicSans-Regular.ttf');
+    url('css/fonts/PublicSans-Regular.ttf');
     font-weight: normal;
   }
   @font-face {
@@ -64,46 +64,95 @@ Use it to make something cool, have fun, and share what you've learned with othe
 ************************** Header *********************************
 */
 nav{
-    height: 90px;
-    padding-left: 80px;
+  height: 90px;
+  padding-left: 80px;
 }
 #navbar ul{
-    margin-left: 140px;
+  margin-left: 140px;
 }
 #navbar ul li{
-    margin-top: 30px;
+  margin-top: 30px;
 }
 #navbar ul li a {
-    padding: 0px;
-    color: #a2a2ab;
-    margin: 0 65px;
-    text-transform: uppercase;
-    font-family: 'Segoe-Bold';
-    
+  padding: 0px;
+  color: #a2a2ab;
+  margin: 0 65px;
+  text-transform: uppercase;
+  font-family: 'Segoe-Bold';
+  
 }
 #navbar ul li a:hover{
-    background-color: white;
-    color: #000316;
-    cursor: pointer;
+  background-color: white;
+  color: #000316;
+  cursor: pointer;
 }
 #navbar ul li a:active{
-    color: #000316;
-    border-bottom: 2px solid #000316;
-    background-color: white;
+  color: #000316;
+  border-bottom: 2px solid #000316;
+  background-color: white;
 }
 .navbar-header button{
   border:1px solid #444444;
 }
 button .icon-bar{
-    background-color: #444444;
+  background-color: #444444;
 }
 
+/*
+************************** Biografia *********************************
+*/
 
+.front-cover{
 
+  height: 665px;
+  background-size: 100%; 
+  object-fit: fill;
+  background-repeat: no-repeat;
+  background-position-x:  right;
+   background-color: #0c0e14;
+   padding-top: 150px;
+}
+.front-cover-container h1{
+  padding-left: 100px;
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-family: 'Tenor-Sans';
+  text-transform: uppercase;
+  font-weight: initial;
+  color: white;
+}
+.front-cover-description{
+  padding: 30px 90px 30px 100px;
+  line-height: 1.5;
+  font-size: 15px;
+  font-family: 'Segoe';
+  background-color: #07080c;
+  background: linear-gradient(90deg, #07080c 60%, rgba(255,254,254,.1));
+  color: white;
+}
 
-
-
-
+.front-cover-social-networks{
+  margin-top: 60px;
+  padding-left: 100px;
+}
+.front-cover-social-networks li{
+  padding: 15px 0px;
+  list-style: none;
+}
+.front-cover-social-networks ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Segoe';
+}
+.front-cover-social-networks ul li p{
+  margin-left: 20px;
+  text-align: center;
+}
+.networks{
+  display: flex;
+  align-items: center;
+}
 
 
 
