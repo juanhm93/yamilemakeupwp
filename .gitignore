@@ -1,0 +1,6 @@
+*.jpeg
+*.png
+*.svg
+css/fonts/*.otf
+css/fonts/*.ttf
+css/fonts/*.woff
